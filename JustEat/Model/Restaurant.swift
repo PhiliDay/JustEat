@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct Restaurant: Decodable {
+    let name: String?
+    let ratingStars: Double?
+
+    enum CodingKeys: String, CodingKey {
+        case name = "Name"
+        case ratingStars = "RatingStars"
+    }
+}
+
+

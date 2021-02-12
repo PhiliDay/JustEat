@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct Restaurants: Decodable {
+    let restaurants: [Restaurant]
+
+    enum CodingKeys: String, CodingKey {
+        case restaurants = "Restaurants"
+    }
+}

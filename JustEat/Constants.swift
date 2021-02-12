@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+
+struct Constants {
+    static let baseURL = "https://uk.api.just-eat.io/restaurants/bypostcode/"
+}
