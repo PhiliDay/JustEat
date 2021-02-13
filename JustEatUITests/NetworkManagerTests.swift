@@ -13,6 +13,7 @@ class NetworkManagerTests: XCTestCase {
     private var networkManager: NetworkManager?
 
     override func setUp() {
+        networkManager = NetworkManager()
     }
 
     override func tearDown() {

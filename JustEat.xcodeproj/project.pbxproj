@@ -21,6 +21,7 @@
 		649F0B0025D6D98400523A79 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0AFF25D6D98400523A79 /* Restaurants.swift */; };
 		649F0B0625D6DD2F00523A79 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0B0525D6DD2F00523A79 /* HTTPMethod.swift */; };
 		649F0B1325D7361500523A79 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0B1225D7361500523A79 /* NetworkManagerTests.swift */; };
+		649F0B2025D7E32800523A79 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0B1F25D7E32800523A79 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		649F0AFF25D6D98400523A79 /* Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants.swift; sourceTree = "<group>"; };
 		649F0B0525D6DD2F00523A79 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		649F0B1225D7361500523A79 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		649F0B1F25D7E32800523A79 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 		649F0AE625D6CA2100523A79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				649F0B1F25D7E32800523A79 /* TableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				649F0AE825D6CA3600523A79 /* Restaurant.swift in Sources */,
 				649F0AB425D6CA0900523A79 /* ViewController.swift in Sources */,
 				649F0AF125D6CC2200523A79 /* NetworkManager.swift in Sources */,
+				649F0B2025D7E32800523A79 /* TableViewCell.swift in Sources */,
 				649F0AB025D6CA0900523A79 /* AppDelegate.swift in Sources */,
 				649F0B0625D6DD2F00523A79 /* HTTPMethod.swift in Sources */,
 				649F0AB225D6CA0900523A79 /* SceneDelegate.swift in Sources */,

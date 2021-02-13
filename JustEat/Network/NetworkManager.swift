@@ -14,7 +14,7 @@ class NetworkManager {
         // URL
         let baseURL = URL(string: Constants.baseURL)
         guard var url = baseURL else {
-            print("Issue with baseURL: \(#function)")
+            print("BaseURL not working: \(#function)")
             return }
 
         // Query
@@ -43,7 +43,7 @@ class NetworkManager {
                 let restaurants = try jsonDecoder.decode(Restaurants.self, from: data)
                 let restaurant = restaurants.restaurants
                 completion(.success(restaurant))
-                print("Success: \(restaurant)")
+//                print("Success: \(restaurant)")
             } catch {
                 print("Failure: \(error.localizedDescription)")
                 completion(.failure(error))
