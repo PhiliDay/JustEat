@@ -11,7 +11,7 @@ class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var rating: UILabel!
-    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var logo: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

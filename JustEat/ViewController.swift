@@ -8,14 +8,15 @@
 import CoreLocation
 import UIKit
 
-class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-
     private let networkManager = NetworkManager()
     private var postcode = ""
     var searchResults = [Restaurant]()
     var locationManager:CLLocationManager!
+
+    @IBOutlet weak var logo: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,15 +29,15 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         determineMyCurrentLocation()
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResults.count
-    }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
         let restaurants = searchResults[indexPath.row]
         cell.restaurantName!.text = restaurants.name
-        cell.rating.text = String(format: "%.1f", restaurants.ratingStars ?? "")
+        cell.rating.text = String(format: "%.1f", "Rating: \(restaurants.ratingStars)" ?? "")
+        //Need to sort out optionals
+        let url = URL(string: restaurants.logoURL ?? "")
+        let data = try? Data(contentsOf: url!)
+        cell.logo.image = UIImage(data: data!)
         return cell
     }
 
@@ -59,7 +60,19 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         }
         searchBar.endEditing(true)
     }
+}
 
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchResults.count
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+}
+
+extension ViewController: CLLocationManagerDelegate {
     func determineMyCurrentLocation() {
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -94,7 +107,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         print("Location Error: \(error)")
     }
 
-    @IBAction func locationArrowTapped(_ sender: UIButton) {
+    @IBAction func locationTapped(_ sender: UIButton) {
         determineMyCurrentLocation()
         self.networkManager.fetchRestaurants(postcode: self.postcode) { [weak self] result in
             switch result {
@@ -110,5 +123,3 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         }
     }
 }
-
-

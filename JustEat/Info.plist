@@ -66,5 +66,10 @@
 	<string>Allow app to know your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow app to know your location</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
