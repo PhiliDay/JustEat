@@ -20,8 +20,8 @@
 		649F0AF925D6D1BE00523A79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0AF825D6D1BE00523A79 /* Constants.swift */; };
 		649F0B0025D6D98400523A79 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0AFF25D6D98400523A79 /* Restaurants.swift */; };
 		649F0B0625D6DD2F00523A79 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0B0525D6DD2F00523A79 /* HTTPMethod.swift */; };
-		649F0B1325D7361500523A79 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0B1225D7361500523A79 /* NetworkManagerTests.swift */; };
 		649F0B2025D7E32800523A79 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0B1F25D7E32800523A79 /* TableViewCell.swift */; };
+		649F0B2425D98F8F00523A79 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0B1225D7361500523A79 /* NetworkManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				649F0AC625D6CA0B00523A79 /* JustEatTests.swift */,
+				649F0B1225D7361500523A79 /* NetworkManagerTests.swift */,
 				649F0AC825D6CA0B00523A79 /* Info.plist */,
 			);
 			path = JustEatTests;
@@ -142,7 +143,6 @@
 			children = (
 				649F0AD125D6CA0B00523A79 /* JustEatUITests.swift */,
 				649F0AD325D6CA0B00523A79 /* Info.plist */,
-				649F0B1225D7361500523A79 /* NetworkManagerTests.swift */,
 			);
 			path = JustEatUITests;
 			sourceTree = "<group>";
@@ -327,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				649F0B2425D98F8F00523A79 /* NetworkManagerTests.swift in Sources */,
 				649F0AC725D6CA0B00523A79 /* JustEatTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,7 +336,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				649F0B1325D7361500523A79 /* NetworkManagerTests.swift in Sources */,
 				649F0AD225D6CA0B00523A79 /* JustEatUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
