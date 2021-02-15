@@ -13,16 +13,14 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     private let networkManager = NetworkManager()
     private var postcode = ""
+    var placeholder = UILabel()
     var searchResults = [Restaurant]()
     var locationManager:CLLocationManager!
-
-    @IBOutlet weak var logo: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorColor = .clear
         searchBar.delegate = self
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -33,12 +31,15 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
         let restaurants = searchResults[indexPath.row]
-        cell.restaurantName!.text = restaurants.name
+        cell.restaurantName.text = restaurants.name
         cell.rating.text = String(format: "%.1f", restaurants.ratingStars!)
-        //Need to sort out optionals
         let url = URL(string: restaurants.logoURL ?? "")
-        let data = try? Data(contentsOf: url!)
-        cell.logo.image = UIImage(data: data!)
+        if let url = url {
+            let data = try? Data(contentsOf: url)
+            if let data = data {
+                cell.logo.image = UIImage(data: data)
+            }
+        }
         return cell
     }
 
@@ -87,9 +88,6 @@ extension ViewController: CLLocationManagerDelegate {
             if let location = locations?.first, let postCode = location.postalCode {
                 self?.postcode = postCode
             }
-
-            print("user latitude = \(userLocation.coordinate.latitude)")
-            print("user longitude = \(userLocation.coordinate.longitude)")
         }
     }
 
@@ -124,7 +122,7 @@ extension ViewController: CLLocationManagerDelegate {
                     self.tableView.reloadData()
                 }
             case .failure(let error):
-                print("Error: \(error.localizedDescription)")
+                print("Getting Results Error: \(error.localizedDescription)")
             }
         }
     }
