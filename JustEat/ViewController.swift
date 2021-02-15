@@ -22,6 +22,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         super.viewDidLoad()
         self.tableView.separatorColor = .clear
         searchBar.delegate = self
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +34,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
         let restaurants = searchResults[indexPath.row]
         cell.restaurantName!.text = restaurants.name
-        cell.rating.text = String(format: "%.1f", "Rating: \(restaurants.ratingStars)" ?? "")
+        cell.rating.text = String(format: "%.1f", restaurants.ratingStars!)
         //Need to sort out optionals
         let url = URL(string: restaurants.logoURL ?? "")
         let data = try? Data(contentsOf: url!)
@@ -46,20 +47,10 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
             return
         }
 
-        networkManager.fetchRestaurants(postcode: searchText) { result in
-
-            switch result {
-            case.success(let results):
-                DispatchQueue.main.async {
-                    self.searchResults = results
-                    self.tableView.reloadData()
-                }
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
-            }
-        }
+        setRestaurants(postcode: searchText)
         searchBar.endEditing(true)
     }
+
 }
 
 extension ViewController: UITableViewDelegate {
@@ -119,6 +110,21 @@ extension ViewController: CLLocationManagerDelegate {
                 }
             case .failure(let error):
                 print("Location Arrow Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func setRestaurants(postcode: String) {
+        networkManager.fetchRestaurants(postcode: postcode) { result in
+
+            switch result {
+            case.success(let results):
+                DispatchQueue.main.async {
+                    self.searchResults = results
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
             }
         }
     }
