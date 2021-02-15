@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="width" constant="414" id="pHj-7c-lTN"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="145" id="iaL-sd-43L" customClass="TableViewCell" customModule="JustEat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="145" id="iaL-sd-43L" customClass="TableViewCell" customModule="JustEat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iaL-sd-43L" id="Kpd-8R-cdN" customClass="TableViewCell" customModule="JustEat" customModuleProvider="target">
@@ -79,8 +79,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="98"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlf-Zz-23J">
-                                <rect key="frame" x="362" y="101" width="38" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlf-Zz-23J">
+                                <rect key="frame" x="362" y="103" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="38" id="DoL-RA-ds5"/>
                                 </constraints>

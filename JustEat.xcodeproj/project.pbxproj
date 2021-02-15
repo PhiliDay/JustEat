@@ -21,7 +21,6 @@
 		649F0B0025D6D98400523A79 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0AFF25D6D98400523A79 /* Restaurants.swift */; };
 		649F0B0625D6DD2F00523A79 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0B0525D6DD2F00523A79 /* HTTPMethod.swift */; };
 		649F0B2025D7E32800523A79 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0B1F25D7E32800523A79 /* TableViewCell.swift */; };
-		649F0B2425D98F8F00523A79 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0B1225D7361500523A79 /* NetworkManagerTests.swift */; };
 		64FF122A25DAF68000F66243 /* Cuisines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF122925DAF68000F66243 /* Cuisines.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +61,6 @@
 		649F0AF825D6D1BE00523A79 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		649F0AFF25D6D98400523A79 /* Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants.swift; sourceTree = "<group>"; };
 		649F0B0525D6DD2F00523A79 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		649F0B1225D7361500523A79 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		649F0B1F25D7E32800523A79 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		64FF122925DAF68000F66243 /* Cuisines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuisines.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				649F0AC625D6CA0B00523A79 /* JustEatTests.swift */,
-				649F0B1225D7361500523A79 /* NetworkManagerTests.swift */,
 				649F0AC825D6CA0B00523A79 /* Info.plist */,
 			);
 			path = JustEatTests;
@@ -331,7 +328,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				649F0B2425D98F8F00523A79 /* NetworkManagerTests.swift in Sources */,
 				649F0AC725D6CA0B00523A79 /* JustEatTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

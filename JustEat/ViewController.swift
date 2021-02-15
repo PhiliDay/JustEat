@@ -130,6 +130,7 @@ extension ViewController {
                 cell.logo.image = UIImage(data: data)
             }
         }
+        
         return cell
     }
 
@@ -146,5 +147,25 @@ extension ViewController {
                 print("Getting Results Error: \(error.localizedDescription)")
             }
         }
+    }
+
+    func setAlert() {
+            let alert = UIAlertController(title: "Alert", message: "Please enter a valid postcode", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                  switch action.style{
+                  case .default:
+                        print("default")
+
+                  case .cancel:
+                        print("cancel")
+
+                  case .destructive:
+                        print("destructive")
+
+
+                  @unknown default:
+                    fatalError()
+                  }}))
+            self.present(alert, animated: true, completion: nil)
     }
 }

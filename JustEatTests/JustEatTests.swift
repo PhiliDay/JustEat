@@ -15,16 +15,9 @@ class JustEatTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        //get the storyboard the ViewController under test is inside
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-
-        //get the ViewController we want to test from the storyboard (note the identifier is the id explicitly set in the identity inspector)
-        systemUnderTest = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
-        restaurant = Restaurant(name: "TEST", ratingStars: 20, logoURL: "https://fakeURL.com")
+        restaurant = Restaurant(name: "TEST", ratingStars: 20, typeOfFood: [Cuisines(name: "TESTFOOD")], logoURL: "https://fakeURL.com")
 
         //load view hierarchy
-        _ = systemUnderTest.view
     }
 
     override func tearDownWithError() throws {
@@ -43,9 +36,8 @@ class JustEatTests: XCTestCase {
         XCTAssertTrue(restaurant?.logoURL == "https://fakeURL.com", "Fail, logoURL incorrect")
     }
 
-
-    func testSUT_HasSearchBar() {
-        XCTAssertNotNil(systemUnderTest.searchBar)
+    func testRestaurantCuisine() {
+        XCTAssertTrue(restaurant?.typeOfFood?[0].name == "TESTFOOD", "Fail, cuisine incorrect")
     }
 
     func testPerformanceExample() throws {
