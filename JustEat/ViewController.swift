@@ -20,6 +20,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorColor = .clear
+        searchBar.backgroundImage = UIImage()
         searchBar.delegate = self
     }
 
@@ -28,30 +29,13 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         determineMyCurrentLocation()
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
-        let restaurants = searchResults[indexPath.row]
-        cell.restaurantName.text = restaurants.name
-        cell.rating.text = String(format: "%.1f", restaurants.ratingStars!)
-        let url = URL(string: restaurants.logoURL ?? "")
-        if let url = url {
-            let data = try? Data(contentsOf: url)
-            if let data = data {
-                cell.logo.image = UIImage(data: data)
-            }
-        }
-        return cell
-    }
-
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text, !searchText.isEmpty else {
             return
         }
-
         setRestaurants(postcode: searchText)
         searchBar.endEditing(true)
     }
-
 }
 
 extension ViewController: UITableViewDelegate {
@@ -60,7 +44,7 @@ extension ViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 100
     }
 }
 
@@ -110,6 +94,43 @@ extension ViewController: CLLocationManagerDelegate {
                 print("Location Arrow Error: \(error.localizedDescription)")
             }
         }
+    }
+}
+
+extension ViewController {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
+        let restaurants = searchResults[indexPath.row]
+
+        //Set restaurant name
+        cell.restaurantName.text = restaurants.name
+
+        //Set restaurant rating
+        let ratingText = String(format: "%.1f", restaurants.ratingStars!)
+        cell.rating.text = "Rating: \(ratingText)"
+
+        //Set restaurant food types
+        guard let typeOfFood = restaurants.typeOfFood else {
+            return cell
+        }
+        var nameText = ""
+        for cuisine in typeOfFood {
+            guard let name = cuisine.name else {
+                return cell
+            }
+            nameText.append("\(name)   ")
+        }
+        cell.typeOfFood.text = nameText
+
+        //Set restaurant logo
+        let url = URL(string: restaurants.logoURL ?? "")
+        if let url = url {
+            let data = try? Data(contentsOf: url)
+            if let data = data {
+                cell.logo.image = UIImage(data: data)
+            }
+        }
+        return cell
     }
 
     func setRestaurants(postcode: String) {

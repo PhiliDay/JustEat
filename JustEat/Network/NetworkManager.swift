@@ -18,7 +18,7 @@ class NetworkManager {
             print("BaseURL not working: \(#function)")
             return }
 
-        // Query
+        // Postcode
         url.appendPathComponent("\(postcode)")
 
         // Request
@@ -44,7 +44,6 @@ class NetworkManager {
                 let restaurants = try jsonDecoder.decode(Restaurants.self, from: data)
                 let restaurant = restaurants.restaurants
                 completion(.success(restaurant))
-//                print("Success: \(restaurant)")
             } catch {
                 print("Failure: \(error.localizedDescription)")
                 completion(.failure(error))

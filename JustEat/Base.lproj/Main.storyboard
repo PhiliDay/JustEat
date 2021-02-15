@@ -36,8 +36,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="145"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cG8-sG-MGP">
-                                                    <rect key="frame" x="180" y="11" width="174" height="59"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restaurant Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cG8-sG-MGP">
+                                                    <rect key="frame" x="180" y="0.0" width="174" height="59"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -47,11 +47,18 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="172" height="145"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xz3-gG-GPc">
-                                                    <rect key="frame" x="180" y="78" width="174" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xz3-gG-GPc">
+                                                    <rect key="frame" x="180" y="100" width="174" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" systemColor="systemGray2Color"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type Of Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jt7-RU-8Ed">
+                                                    <rect key="frame" x="180" y="62" width="220" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="systemGray2Color"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -60,6 +67,7 @@
                                             <outlet property="logo" destination="TK9-kT-REV" id="Jdi-7m-quy"/>
                                             <outlet property="rating" destination="xz3-gG-GPc" id="YdY-cz-YFz"/>
                                             <outlet property="restaurantName" destination="cG8-sG-MGP" id="a3X-Zs-NSo"/>
+                                            <outlet property="typeOfFood" destination="jt7-RU-8Ed" id="1ex-hd-uzY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -71,10 +79,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="98"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlf-Zz-23J">
-                                <rect key="frame" x="363" y="97" width="40" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlf-Zz-23J">
+                                <rect key="frame" x="362" y="101" width="38" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="DoL-RA-ds5"/>
+                                    <constraint firstAttribute="width" constant="38" id="DoL-RA-ds5"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="Location"/>
                                 <connections>
@@ -86,16 +94,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="G9i-DY-twY" firstAttribute="leading" secondItem="g6h-eQ-hAa" secondAttribute="leading" id="0XD-eO-T4B"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qlf-Zz-23J" secondAttribute="trailing" constant="11" id="2MQ-KU-lTH"/>
-                            <constraint firstItem="g6h-eQ-hAa" firstAttribute="top" secondItem="Qlf-Zz-23J" secondAttribute="bottom" constant="23" id="BDc-dU-cSg"/>
-                            <constraint firstItem="Qlf-Zz-23J" firstAttribute="leading" secondItem="G9i-DY-twY" secondAttribute="trailing" constant="28" id="DEa-O9-4Wl"/>
-                            <constraint firstItem="Qlf-Zz-23J" firstAttribute="leading" secondItem="G9i-DY-twY" secondAttribute="trailing" constant="28" id="Gus-Xy-yv2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qlf-Zz-23J" secondAttribute="trailing" constant="14" id="2MQ-KU-lTH"/>
+                            <constraint firstItem="g6h-eQ-hAa" firstAttribute="top" secondItem="Qlf-Zz-23J" secondAttribute="bottom" constant="21" id="BDc-dU-cSg"/>
+                            <constraint firstItem="Qlf-Zz-23J" firstAttribute="leading" secondItem="G9i-DY-twY" secondAttribute="trailing" constant="17" id="DEa-O9-4Wl"/>
+                            <constraint firstItem="Qlf-Zz-23J" firstAttribute="leading" secondItem="G9i-DY-twY" secondAttribute="trailing" constant="17" id="Gus-Xy-yv2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="g6h-eQ-hAa" secondAttribute="bottom" id="JQq-t4-PeO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qlf-Zz-23J" secondAttribute="trailing" constant="11" id="ZI5-g6-DDM"/>
-                            <constraint firstItem="g6h-eQ-hAa" firstAttribute="top" secondItem="Qlf-Zz-23J" secondAttribute="bottom" constant="23" id="eQ1-tO-xS1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qlf-Zz-23J" secondAttribute="trailing" constant="14" id="ZI5-g6-DDM"/>
+                            <constraint firstItem="g6h-eQ-hAa" firstAttribute="top" secondItem="Qlf-Zz-23J" secondAttribute="bottom" constant="21" id="eQ1-tO-xS1"/>
                             <constraint firstItem="G9i-DY-twY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="2" id="lqW-bs-DLg"/>
                             <constraint firstItem="G9i-DY-twY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mpS-VU-IRh"/>
-                            <constraint firstItem="Qlf-Zz-23J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="zqm-pg-WDO"/>
+                            <constraint firstItem="Qlf-Zz-23J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="13" id="zqm-pg-WDO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="d8s-kh-mHl"/>
@@ -128,9 +136,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Location" width="219" height="230"/>
+        <image name="Location" width="980" height="960"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
