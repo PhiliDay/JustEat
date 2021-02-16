@@ -10,7 +10,6 @@ import XCTest
 
 class JustEatTests: XCTestCase {
 
-    var systemUnderTest: ViewController!
     var restaurant: Restaurant?
 
     override func setUpWithError() throws {

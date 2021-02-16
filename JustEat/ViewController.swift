@@ -49,6 +49,7 @@ extension ViewController: UITableViewDelegate {
 }
 
 extension ViewController: CLLocationManagerDelegate {
+    //Setting up the location manager and requests location
     func determineMyCurrentLocation() {
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -60,6 +61,7 @@ extension ViewController: CLLocationManagerDelegate {
         }
     }
 
+    //Gets current location and sets postcode
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0] as CLLocation
         let geoCodeLocation = CLGeocoder()
@@ -80,6 +82,7 @@ extension ViewController: CLLocationManagerDelegate {
         print("Location Error: \(error)")
     }
 
+    //Action for fetching the restaurants on location button tapped
     @IBAction func locationTapped(_ sender: UIButton) {
         determineMyCurrentLocation()
         self.networkManager.fetchRestaurants(postcode: self.postcode) { [weak self] result in
@@ -134,6 +137,7 @@ extension ViewController {
         return cell
     }
 
+    // Makes call to get restaurants based on postcode.  If successful, will load tableView.
     func setRestaurants(postcode: String) {
         networkManager.fetchRestaurants(postcode: postcode) { result in
 
@@ -147,25 +151,5 @@ extension ViewController {
                 print("Getting Results Error: \(error.localizedDescription)")
             }
         }
-    }
-
-    func setAlert() {
-            let alert = UIAlertController(title: "Alert", message: "Please enter a valid postcode", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                  switch action.style{
-                  case .default:
-                        print("default")
-
-                  case .cancel:
-                        print("cancel")
-
-                  case .destructive:
-                        print("destructive")
-
-
-                  @unknown default:
-                    fatalError()
-                  }}))
-            self.present(alert, animated: true, completion: nil)
     }
 }
