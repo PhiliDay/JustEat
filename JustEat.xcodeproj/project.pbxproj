@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		648C355125EA929E0054584F /* ResturantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648C355025EA929E0054584F /* ResturantViewModel.swift */; };
 		649F0AB025D6CA0900523A79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0AAF25D6CA0900523A79 /* AppDelegate.swift */; };
 		649F0AB225D6CA0900523A79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0AB125D6CA0900523A79 /* SceneDelegate.swift */; };
 		649F0AB425D6CA0900523A79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F0AB325D6CA0900523A79 /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		648C355025EA929E0054584F /* ResturantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResturantViewModel.swift; sourceTree = "<group>"; };
 		649F0AAC25D6CA0900523A79 /* JustEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		649F0AAF25D6CA0900523A79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		649F0AB125D6CA0900523A79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		648C354F25EA928F0054584F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				648C355025EA929E0054584F /* ResturantViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		649F0AA325D6CA0900523A79 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 		649F0AAE25D6CA0900523A79 /* JustEat */ = {
 			isa = PBXGroup;
 			children = (
+				648C354F25EA928F0054584F /* ViewModel */,
 				649F0AEF25D6CC0B00523A79 /* Network */,
 				649F0AE625D6CA2100523A79 /* Views */,
 				649F0AE225D6CA1300523A79 /* Model */,
@@ -317,6 +328,7 @@
 				649F0B2025D7E32800523A79 /* TableViewCell.swift in Sources */,
 				649F0AB025D6CA0900523A79 /* AppDelegate.swift in Sources */,
 				649F0B0625D6DD2F00523A79 /* HTTPMethod.swift in Sources */,
+				648C355125EA929E0054584F /* ResturantViewModel.swift in Sources */,
 				64FF122A25DAF68000F66243 /* Cuisines.swift in Sources */,
 				649F0AB225D6CA0900523A79 /* SceneDelegate.swift in Sources */,
 				649F0AF925D6D1BE00523A79 /* Constants.swift in Sources */,

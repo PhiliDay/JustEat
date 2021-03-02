@@ -16,7 +16,8 @@ class NetworkManager {
         let baseURL = URL(string: Constants.baseURL)
         guard var url = baseURL else {
             print("BaseURL not working: \(#function)")
-            return }
+            return
+        }
 
         // Postcode
         url.appendPathComponent("\(postcode)")
@@ -41,6 +42,7 @@ class NetworkManager {
             let jsonDecoder = JSONDecoder()
 
             do {
+                //could improve naming here e.g. listOfResturants.restaurant
                 let restaurants = try jsonDecoder.decode(Restaurants.self, from: data)
                 let restaurant = restaurants.restaurants
                 completion(.success(restaurant))
@@ -53,3 +55,8 @@ class NetworkManager {
 
     }
 }
+
+//Could use this for errors
+//enum NetworkError: Error {
+//    case badURL
+//}

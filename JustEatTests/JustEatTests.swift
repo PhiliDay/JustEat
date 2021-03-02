@@ -23,6 +23,13 @@ class JustEatTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func testRestaurantViewModel() {
+        //given
+        let restaurantViewModel = RestaurantViewModel(restaurant: restaurant ?? Restaurant(name: "", ratingStars: 0, typeOfFood: [Cuisines(name: "")], logoURL: ""))
+        XCTAssertEqual(restaurant?.name, restaurantViewModel.name)
+        XCTAssertEqual("Rating: \(String(describing: restaurant?.ratingStars))", restaurantViewModel.ratingText)
+    }
+
     func testRestaurantName() {
         XCTAssertTrue(restaurant?.name == "TEST", "Fail, name incorrect")
     }

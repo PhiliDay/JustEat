@@ -12,10 +12,13 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     private let networkManager = NetworkManager()
+    private let placeholder = UILabel()
+    private let alert = UIAlertController()
+    private var searchResults = [Restaurant]()
+    private var locationManager: CLLocationManager!
     private var postcode = ""
-    var placeholder = UILabel()
-    var searchResults = [Restaurant]()
-    var locationManager:CLLocationManager!
+
+    private var restaurantViewModels = [RestaurantViewModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,16 +66,18 @@ extension ViewController: CLLocationManagerDelegate {
 
     //Gets current location and sets postcode
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[0] as CLLocation
-        let geoCodeLocation = CLGeocoder()
-        geoCodeLocation.reverseGeocodeLocation(userLocation) { [weak self] locations, error in
-            if let error = error {
-                print("Geocode Error: \(error.localizedDescription)")
-                return
-            }
+        if let locations = locations.first {
+            let userLocation:CLLocation = locations as CLLocation
+            let geoCodeLocation = CLGeocoder()
+            geoCodeLocation.reverseGeocodeLocation(userLocation) { [weak self] locations, error in
+                if let error = error {
+                    print("Geocode Error: \(error.localizedDescription)")
+                    return
+                }
 
-            if let location = locations?.first, let postCode = location.postalCode {
-                self?.postcode = postCode
+                if let location = locations?.first, let postCode = location.postalCode {
+                    self?.postcode = postCode
+                }
             }
         }
     }
@@ -85,66 +90,36 @@ extension ViewController: CLLocationManagerDelegate {
     //Action for fetching the restaurants on location button tapped
     @IBAction func locationTapped(_ sender: UIButton) {
         determineMyCurrentLocation()
-        self.networkManager.fetchRestaurants(postcode: self.postcode) { [weak self] result in
-            switch result {
-            case .success(let results):
-                self?.searchResults = results
-                DispatchQueue.main.async {
-                    self?.searchBar.text = self?.postcode
-                    self?.tableView.reloadData()
-                }
-            case .failure(let error):
-                print("Location Arrow Error: \(error.localizedDescription)")
-            }
-        }
+        setRestaurants(postcode: self.postcode)
+        self.searchBar.text = self.postcode
     }
 }
 
 extension ViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
-        let restaurants = searchResults[indexPath.row]
 
-        //Set restaurant name
-        cell.restaurantName.text = restaurants.name
-
-        //Set restaurant rating
-        let ratingText = String(format: "%.1f", restaurants.ratingStars!)
-        cell.rating.text = "Rating: \(ratingText)"
-
-        //Set restaurant food types
-        guard let typeOfFood = restaurants.typeOfFood else {
-            return cell
-        }
-        var nameText = ""
-        for cuisine in typeOfFood {
-            guard let name = cuisine.name else {
-                return cell
-            }
-            nameText.append("\(name)   ")
-        }
-        cell.typeOfFood.text = nameText
-
-        //Set restaurant logo
-        let url = URL(string: restaurants.logoURL ?? "")
-        if let url = url {
-            let data = try? Data(contentsOf: url)
-            if let data = data {
-                cell.logo.image = UIImage(data: data)
-            }
-        }
-        
+        //        Changing MVC to MVVM
+        let restaurantViewModel = restaurantViewModels[indexPath.row]
+        cell.restaurantViewModel = restaurantViewModel
         return cell
     }
 
     // Makes call to get restaurants based on postcode.  If successful, will load tableView.
     func setRestaurants(postcode: String) {
         networkManager.fetchRestaurants(postcode: postcode) { result in
-
             switch result {
             case.success(let results):
                 DispatchQueue.main.async {
+                    if results.isEmpty {
+                        self.alert.title = "Please enter a valid postcode"
+                        self.alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                        self.present(self.alert, animated: true)
+                    }
+
+                    self.restaurantViewModels = results.map({return RestaurantViewModel(restaurant: $0)})
                     self.searchResults = results
+
                     self.tableView.reloadData()
                 }
             case .failure(let error):

@@ -26,7 +26,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="706" id="2gE-Tq-kQj"/>
                                     <constraint firstAttribute="height" constant="706" id="K1t-XG-B0x"/>
-                                    <constraint firstAttribute="width" constant="414" id="pHj-7c-lTN"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="145" id="iaL-sd-43L" customClass="TableViewCell" customModule="JustEat" customModuleProvider="target">
@@ -97,12 +96,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qlf-Zz-23J" secondAttribute="trailing" constant="14" id="2MQ-KU-lTH"/>
                             <constraint firstItem="g6h-eQ-hAa" firstAttribute="top" secondItem="Qlf-Zz-23J" secondAttribute="bottom" constant="21" id="BDc-dU-cSg"/>
                             <constraint firstItem="Qlf-Zz-23J" firstAttribute="leading" secondItem="G9i-DY-twY" secondAttribute="trailing" constant="17" id="DEa-O9-4Wl"/>
+                            <constraint firstItem="g6h-eQ-hAa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FkI-Jw-U22"/>
                             <constraint firstItem="Qlf-Zz-23J" firstAttribute="leading" secondItem="G9i-DY-twY" secondAttribute="trailing" constant="17" id="Gus-Xy-yv2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="g6h-eQ-hAa" secondAttribute="bottom" id="JQq-t4-PeO"/>
+                            <constraint firstItem="g6h-eQ-hAa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KG7-mU-4WL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qlf-Zz-23J" secondAttribute="trailing" constant="14" id="ZI5-g6-DDM"/>
                             <constraint firstItem="g6h-eQ-hAa" firstAttribute="top" secondItem="Qlf-Zz-23J" secondAttribute="bottom" constant="21" id="eQ1-tO-xS1"/>
+                            <constraint firstItem="g6h-eQ-hAa" firstAttribute="top" secondItem="G9i-DY-twY" secondAttribute="bottom" constant="10" id="exf-K1-c2e"/>
                             <constraint firstItem="G9i-DY-twY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="2" id="lqW-bs-DLg"/>
                             <constraint firstItem="G9i-DY-twY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mpS-VU-IRh"/>
+                            <constraint firstItem="g6h-eQ-hAa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qXV-eU-lS2"/>
                             <constraint firstItem="Qlf-Zz-23J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="13" id="zqm-pg-WDO"/>
                         </constraints>
                     </view>
