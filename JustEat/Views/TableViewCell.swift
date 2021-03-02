@@ -9,7 +9,6 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
-//    Weak as its a child of ViewController?
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var rating: UILabel!
@@ -42,7 +41,6 @@ class TableViewCell: UITableViewCell {
     }
 
     func setLogo() {
-        //Set restaurant logo
         let url = URL(string: restaurantViewModel.logoURL)
         if let url = url {
             let data = try? Data(contentsOf: url)

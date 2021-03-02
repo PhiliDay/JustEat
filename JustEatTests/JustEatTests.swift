@@ -27,7 +27,8 @@ class JustEatTests: XCTestCase {
         //given
         let restaurantViewModel = RestaurantViewModel(restaurant: restaurant ?? Restaurant(name: "", ratingStars: 0, typeOfFood: [Cuisines(name: "")], logoURL: ""))
         XCTAssertEqual(restaurant?.name, restaurantViewModel.name)
-        XCTAssertEqual("Rating: \(String(describing: restaurant?.ratingStars))", restaurantViewModel.ratingText)
+        XCTAssertEqual(restaurant?.ratingStars, restaurantViewModel.rating)
+        XCTAssertEqual(restaurant?.logoURL, restaurantViewModel.logoURL)
     }
 
     func testRestaurantName() {
